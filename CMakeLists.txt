@@ -375,4 +375,35 @@ if(PROJECT_IS_TOP_LEVEL)
         DESTINATION
             "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
     )
+
+    # Generate a pkg-config file, so that software projects which use
+    # pkg-config to locate dependencies can find glslang
+
+    # This template is filled-in by CMake's `configure_file(... @ONLY)`.
+    # The `@...@` are substituted by CMake's configure_file(), either
+    # from variables set in CMakeLists.txt or by CMake itself.
+    # (Based on: https://www.scivision.dev/cmake-generate-pkg-config/)
+    file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc.in" [=[
+prefix="@CMAKE_INSTALL_PREFIX@"
+exec_prefix="${prefix}"
+libdir="${prefix}/lib"
+includedir="${prefix}/include"
+
+Name: @PROJECT_NAME@
+Description: official reference compiler front end for the OpenGL ES and OpenGL shading languages
+Version: @PROJECT_VERSION@
+Cflags: -I"${includedir}"
+Libs: -L"${libdir}" -l@PROJECT_NAME@
+    ]=])
+    configure_file(
+        "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc.in"
+        "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc"
+        @ONLY
+    )
+    install(
+        FILES
+            "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc"
+        DESTINATION
+            "${CMAKE_INSTALL_LIBDIR}/pkgconfig"
+    )
 endif()
