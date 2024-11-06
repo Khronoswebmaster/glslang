@@ -68,4 +68,6 @@ Test/baseResults/spv.queryL.frag.out
 Test/baseResults/spv.separate.frag.out
 Test/baseResults/spv.sparseTextureClamp.frag.out
 Test/baseResults/spv.sparseTexture.frag.out
+Test/baseResults/spv.sparsetextureoffset_non_const.vert.out
+Test/baseResults/spv.textureoffset_non_const.vert.out
 Test/baseResults/vk.relaxed.errorcheck.vert.out
