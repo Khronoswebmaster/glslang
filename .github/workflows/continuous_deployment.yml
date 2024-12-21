@@ -100,7 +100,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                os: [{genus: macos-13, family: osx}]
+                os: [{genus: macos-latest, family: osx}]
                 compiler: [{cc: clang, cxx: clang++}]
                 cmake_build_type: [Debug, Release]
         steps:
