@@ -433,15 +433,30 @@ GLSLANG_EXPORT int glslang_shader_preprocess(glslang_shader_t* shader, const gls
 
 GLSLANG_EXPORT int glslang_shader_parse(glslang_shader_t* shader, const glslang_input_t* input)
 {
-    const char* preprocessedCStr = shader->preprocessedGLSL.c_str();
-    shader->shader->setStrings(&preprocessedCStr, 1);
+    if (shader->preprocessedGLSL.length() > 0) {
+        const char* preprocessedCStr = shader->preprocessedGLSL.c_str();
+        shader->shader->setStrings(&preprocessedCStr, 1);
 
-    return shader->shader->parse(
-        reinterpret_cast<const TBuiltInResource*>(input->resource),
-        input->default_version,
-        input->forward_compatible != 0,
-        (EShMessages)c_shader_messages(input->messages)
-    );
+        return shader->shader->parse(
+            reinterpret_cast<const TBuiltInResource*>(input->resource),
+            input->default_version,
+            input->forward_compatible != 0,
+            (EShMessages)c_shader_messages(input->messages)
+        );
+    } else {
+        DirStackFileIncluder dirStackFileIncluder;
+        CallbackIncluder callbackIncluder(input->callbacks, input->callbacks_ctx);
+        glslang::TShader::Includer& Includer = (input->callbacks.include_local||input->callbacks.include_system)
+            ? static_cast<glslang::TShader::Includer&>(callbackIncluder)
+            : static_cast<glslang::TShader::Includer&>(dirStackFileIncluder);
+        return shader->shader->parse(
+            reinterpret_cast<const TBuiltInResource*>(input->resource),
+            input->default_version,
+            input->forward_compatible != 0,
+            (EShMessages)c_shader_messages(input->messages),
+            Includer
+        );
+    }
 }
 
 GLSLANG_EXPORT const char* glslang_shader_get_info_log(glslang_shader_t* shader) { return shader->shader->getInfoLog(); }
