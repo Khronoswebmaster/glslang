@@ -56,9 +56,9 @@ namespace spv {
 }
 
 // Glslang includes
-#include "../glslang/MachineIndependent/localintermediate.h"
-#include "../glslang/MachineIndependent/SymbolTable.h"
-#include "../glslang/Include/Common.h"
+#include "glslang/MachineIndependent/localintermediate.h"
+#include "glslang/MachineIndependent/SymbolTable.h"
+#include "glslang/Include/Common.h"
 
 // Build-time generated includes
 #include "glslang/build_info.h"

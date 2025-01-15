@@ -44,11 +44,11 @@
 #include "glslang/Public/ResourceLimits.h"
 #include "Worklist.h"
 #include "DirStackFileIncluder.h"
-#include "./../glslang/Public/ShaderLang.h"
-#include "../glslang/MachineIndependent/localintermediate.h"
-#include "../SPIRV/GlslangToSpv.h"
-#include "../SPIRV/GLSL.std.450.h"
-#include "../SPIRV/disassemble.h"
+#include "glslang/Public/ShaderLang.h"
+#include "glslang/MachineIndependent/localintermediate.h"
+#include "glslang/SPIRV/GlslangToSpv.h"
+#include "glslang/SPIRV/GLSL.std.450.h"
+#include "glslang/SPIRV/disassemble.h"
 
 #include <array>
 #include <atomic>

@@ -42,7 +42,7 @@
 //
 // Include remapper
 //
-#include "../SPIRV/SPVRemapper.h"
+#include "glslang/SPIRV/SPVRemapper.h"
 
 namespace {
 

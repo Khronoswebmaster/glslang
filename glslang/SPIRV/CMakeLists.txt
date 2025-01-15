@@ -81,7 +81,7 @@ set(PUBLIC_HEADERS
     SPVRemapper.h
     SpvTools.h)
 
-add_library(SPIRV ${LIB_TYPE} ${CMAKE_CURRENT_SOURCE_DIR}/../glslang/stub.cpp)
+add_library(SPIRV ${LIB_TYPE} ${CMAKE_CURRENT_SOURCE_DIR}/../stub.cpp)
 add_library(glslang::SPIRV ALIAS SPIRV)
 set_target_properties(SPIRV PROPERTIES
     FOLDER glslang

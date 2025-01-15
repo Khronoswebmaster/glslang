@@ -34,9 +34,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <cstring>
 #include "glslang/Public/ShaderLang.h"
-#include "SPIRV/GlslangToSpv.h"
-#include "SPIRV/Logger.h"
-#include "SPIRV/SpvTools.h"
+#include "glslang/SPIRV/GlslangToSpv.h"
+#include "glslang/SPIRV/Logger.h"
+#include "glslang/SPIRV/SpvTools.h"
 
 static_assert(sizeof(glslang_spv_options_t) == sizeof(glslang::SpvOptions), "");
 
