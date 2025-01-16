@@ -320,7 +320,7 @@ else()
 endif()
 
 if(ENABLE_SPIRV)
-    add_subdirectory(SPIRV)
+    add_subdirectory(glslang/SPIRV)
 endif()
 add_subdirectory(glslang)
 if(ENABLE_GLSLANG_BINARIES)
