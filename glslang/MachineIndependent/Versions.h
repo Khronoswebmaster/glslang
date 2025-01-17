@@ -4,6 +4,7 @@
 // Copyright (C) 2017, 2022-2024 Arm Limited.
 // Copyright (C) 2015-2018 Google, Inc.
 // Modifications Copyright (C) 2020 Advanced Micro Devices, Inc. All rights reserved.
+// Modifications Copyright (C) 2024 Valve Corporation.
 //
 // All rights reserved.
 //
@@ -223,6 +224,7 @@ const char* const E_GL_EXT_maximal_reconvergence            = "GL_EXT_maximal_re
 const char* const E_GL_EXT_expect_assume                    = "GL_EXT_expect_assume";
 const char* const E_GL_EXT_control_flow_attributes2         = "GL_EXT_control_flow_attributes2";
 const char* const E_GL_EXT_spec_constant_composites         = "GL_EXT_spec_constant_composites";
+const char* const E_GL_EXT_texture_offset_non_const         = "GL_EXT_texture_offset_non_const";
 
 // Arrays of extensions for the above viewportEXTs duplications
 

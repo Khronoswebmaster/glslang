@@ -373,6 +373,7 @@ void TParseVersions::initializeExtensionBehavior()
     extensionBehavior[E_GL_EXT_texture_shadow_lod]          = EBhDisable;
     extensionBehavior[E_GL_EXT_draw_instanced]              = EBhDisable;
     extensionBehavior[E_GL_EXT_texture_array]               = EBhDisable;
+    extensionBehavior[E_GL_EXT_texture_offset_non_const]    = EBhDisable;
 
     // OVR extensions
     extensionBehavior[E_GL_OVR_multiview]                = EBhDisable;
@@ -637,6 +638,11 @@ void TParseVersions::getPreamble(std::string& preamble)
             "#define GL_EXT_multiview 1\n"
             "#define GL_NV_shader_sm_builtins 1\n"
             ;
+    }
+
+    if ((!isEsProfile() && version >= 130) ||
+        (isEsProfile() && version >= 300)) {
+        preamble += "#define GL_EXT_texture_offset_non_const 1\n";
     }
 
     if (version >= 300 /* both ES and non-ES */) {
