@@ -38,7 +38,6 @@ Test/baseResults/hlsl.struct.frag.out
 Test/baseResults/hlsl.struct.split.assign.frag.out
 Test/baseResults/hlsl.texture.struct.frag.out
 Test/baseResults/hlsl.tristream-append.geom.out
-Test/baseResults/iomap.crossStage.vk.2.vert.out
 Test/baseResults/iomap.mismatchedBufferTypes.vert.out
 Test/baseResults/link.vk.differentPC.0.0.frag.out
 Test/baseResults/link.vk.differentPC.1.0.frag.out

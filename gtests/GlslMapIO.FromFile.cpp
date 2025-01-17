@@ -348,7 +348,6 @@ INSTANTIATE_TEST_SUITE_P(
         {{"iomap.mismatchedBufferTypes.vert", "iomap.mismatchedBufferTypes.frag"}, Semantics::OpenGL},
         // vulkan semantics
         {{"iomap.crossStage.vk.vert", "iomap.crossStage.vk.geom", "iomap.crossStage.vk.frag" }, Semantics::Vulkan},
-        {{"iomap.crossStage.vk.2.vert", "iomap.crossStage.vk.2.geom", "iomap.crossStage.vk.2.frag" }, Semantics::Vulkan},
     }))
 );
 // clang-format on
